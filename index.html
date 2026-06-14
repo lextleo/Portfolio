@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tavionyx | Portfolio</title>
+    <!-- Google Fonts for retro and UI typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Sound Init Overlay (Required due to browser autoplay policies) -->
+    <div id="sound-init-overlay" class="sound-overlay">
+        <div class="window sound-window">
+            <div class="window-titlebar">
+                <span>System Notification</span>
+                <button class="titlebar-btn close-overlay-btn" aria-label="Close">×</button>
+            </div>
+            <div class="window-body">
+                <div class="sound-message-container">
+                    <div class="icon-avatar-large">🛸</div>
+                    <div class="sound-text">
+                        <p class="bold-text">Welcome to Tavionyx's OS!</p>
+                        <p>Press "Boot System" to load the portfolio with sound enabled, or "Skip" to load silently.</p>
+                    </div>
+                </div>
+                <div class="sound-buttons">
+                    <button class="retro-btn bold-text" id="boot-with-sound">Boot System</button>
+                    <button class="retro-btn" id="boot-silent">Skip Sound</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Viewport containing the horizontal scroll track -->
+    <div class="desktop-viewport">
+        <!-- Global CRT scanline and dither overlay effects for ultimate retro aesthetic -->
+        <div class="crt-overlay"></div>
+        <div class="scanlines"></div>
+
+        <!-- Left/Right Side Navigation Arrows -->
+        <button class="nav-arrow nav-left" id="btn-prev" aria-label="Previous Page">◀</button>
+        <button class="nav-arrow nav-right" id="btn-next" aria-label="Next Page">▶</button>
+
+        <!-- Slider container -->
+        <div class="desktop-slider" id="desktop-slider">
+            
+            <!-- ================= PAGE 1: HOME DESKTOP ================= -->
+            <section class="desktop-screen" id="screen-home">
+                <!-- Desktop Icons Grid -->
+                <div class="desktop-icons">
+                    <div class="desktop-icon" data-target="1" id="icon-shortform">
+                        <div class="icon-visual">📁</div>
+                        <div class="icon-label">Short_Edits</div>
+                    </div>
+                    <div class="desktop-icon" data-target="2" id="icon-longform">
+                        <div class="icon-visual">🎬</div>
+                        <div class="icon-label">Long_Edits</div>
+                    </div>
+                    <div class="desktop-icon" data-target="3" id="icon-contact">
+                        <div class="icon-visual">⚙️</div>
+                        <div class="icon-label">Sys_Info.lnk</div>
+                    </div>
+                    <a href="https://github.com" target="_blank" class="desktop-icon text-decoration-none">
+                        <div class="icon-visual">🌐</div>
+                        <div class="icon-label">My_GitHub</div>
+                    </a>
+                    <div class="desktop-icon" id="icon-bin">
+                        <div class="icon-visual">🗑️</div>
+                        <div class="icon-label">Recycle Bin</div>
+                    </div>
+                </div>
+
+                <!-- Center Title Area -->
+                <div class="hero-center">
+                    <h1 class="pixel-title">TAVIONYX</h1>
+                    <div class="subtitle-wrap">
+                        <span class="left-year">EST. 2025</span>
+                        <span class="right-role">EDITOR & CODER</span>
+                    </div>
+                    <p class="tagline">Providing clean cuts and crisp lines since day one. Powered by DaVinci Resolve & After Effects.</p>
+                </div>
+            </section>
+
+            <!-- ================= PAGE 2: SHORT FORM SHOWCASE ================= -->
+            <section class="desktop-screen" id="screen-shortform">
+                <div class="window explorer-window">
+                    <div class="window-titlebar">
+                        <div class="title-text-icon">📁 C:\Tavionyx\Short_Edits</div>
+                        <div class="titlebar-actions">
+                            <button class="titlebar-btn min-btn">_</button>
+                            <button class="titlebar-btn max-btn">🗖</button>
+                            <button class="titlebar-btn close-btn" data-home="0">×</button>
+                        </div>
+                    </div>
+                    <div class="window-menubar">
+                        <span><u>F</u>ile</span>
+                        <span><u>E</u>dit</span>
+                        <span><u>V</u>iew</span>
+                        <span><u>H</u>elp</span>
+                    </div>
+                    <div class="window-body explorer-body">
+                        <!-- Sidebar (Folder Tree) -->
+                        <aside class="explorer-sidebar">
+                            <ul class="folder-tree">
+                                <li class="tree-root">📁 My Projects
+                                    <ul>
+                                        <li class="active-folder-tree">📁 Short_Form (4)</li>
+                                        <li>📁 Long_Form</li>
+                                        <li>📁 Renders</li>
+                                        <li>📁 Scripts</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </aside>
+                        
+                        <!-- Main Pane (Video Grid) -->
+                        <main class="explorer-content">
+                            <div class="content-header">
+                                <h3>Short Form Showcase (Reels / TikToks)</h3>
+                                <p>Double click a project below to play it. All edits crafted using After Effects and DaVinci Resolve.</p>
+                            </div>
+                            <div class="shorts-grid">
+                                <!-- Card 1 -->
+                                <div class="short-card" onclick="openVideoModal('Valorant Montage - Fast Beats', 'https://www.w3schools.com/html/mov_bbb.mp4', 'A fast-paced gaming edit focusing on syncing beats with in-game sniper shots and seamless zoom transitions.')">
+                                    <div class="short-thumbnail">
+                                        <div class="play-overlay">▶</div>
+                                        <span class="thumb-emoji">🎮</span>
+                                    </div>
+                                    <div class="short-info">
+                                        <span class="short-name">Valorant_Montage.mp4</span>
+                                        <span class="short-size">14.2 MB</span>
+                                    </div>
+                                </div>
+                                <!-- Card 2 -->
+                                <div class="short-card" onclick="openVideoModal('Cinematic Color Grade', 'https://www.w3schools.com/html/movie.mp4', 'Color grading and correcting raw footage using DaVinci Resolve. Heavy focus on skin-tones and establishing mood.')">
+                                    <div class="short-thumbnail">
+                                        <div class="play-overlay">▶</div>
+                                        <span class="thumb-emoji">🎨</span>
+                                    </div>
+                                    <div class="short-info">
+                                        <span class="short-name">Color_Grade_Showcase.mp4</span>
+                                        <span class="short-size">18.5 MB</span>
+                                    </div>
+                                </div>
+                                <!-- Card 3 -->
+                                <div class="short-card" onclick="openVideoModal('3D Motion VFX', 'https://www.w3schools.com/html/mov_bbb.mp4', '3D Camera Tracker edit done in After Effects, integrating pixel art elements and neon text into live-action street footage.')">
+                                    <div class="short-thumbnail">
+                                        <div class="play-overlay">▶</div>
+                                        <span class="thumb-emoji">✨</span>
+                                    </div>
+                                    <div class="short-info">
+                                        <span class="short-name">3D_Motion_VFX.mp4</span>
+                                        <span class="short-size">22.1 MB</span>
+                                    </div>
+                                </div>
+                                <!-- Card 4 -->
+                                <div class="short-card" onclick="openVideoModal('Kinetic Typography Edit', 'https://www.w3schools.com/html/movie.mp4', 'High-energy kinetic typography short edit syncing text-pop animations with fast dialogue.')">
+                                    <div class="short-thumbnail">
+                                        <div class="play-overlay">▶</div>
+                                        <span class="thumb-emoji">✍️</span>
+                                    </div>
+                                    <div class="short-info">
+                                        <span class="short-name">Kinetic_Typography.mp4</span>
+                                        <span class="short-size">9.8 MB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                    <div class="window-statusbar">
+                        <span>4 object(s) selected</span>
+                        <span>Capacity: 64.6 MB</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= PAGE 3: LONG FORM SHOWCASE ================= -->
+            <section class="desktop-screen" id="screen-longform">
+                <div class="window media-window">
+                    <div class="window-titlebar">
+                        <div class="title-text-icon">🎬 Media Player - Long_Form_Edits.mov</div>
+                        <div class="titlebar-actions">
+                            <button class="titlebar-btn min-btn">_</button>
+                            <button class="titlebar-btn max-btn">🗖</button>
+                            <button class="titlebar-btn close-btn" data-home="0">×</button>
+                        </div>
+                    </div>
+                    <div class="window-body media-body">
+                        <!-- Media Player Viewport -->
+                        <div class="media-player-container">
+                            <div class="media-display">
+                                <video id="longform-video" src="https://www.w3schools.com/html/mov_bbb.mp4" controls poster="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23111'/><text x='50' y='55' font-family='Courier' font-size='10' fill='%23555' text-anchor='middle'>Click Playlist to Load</text></svg>"></video>
+                            </div>
+                            
+                            <!-- Control Panel -->
+                            <div class="media-controls">
+                                <div class="media-slider">
+                                    <div class="slider-progress" style="width: 30%;"></div>
+                                </div>
+                                <div class="media-buttons">
+                                    <button class="media-btn" id="media-play-btn">▶ Play</button>
+                                    <button class="media-btn" id="media-stop-btn">■ Stop</button>
+                                    <span class="media-time" id="media-time-display">00:00 / 00:10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Media Playlist Sidebar -->
+                        <aside class="media-playlist">
+                            <div class="playlist-header">Playlist</div>
+                            <ul class="playlist-items" id="longform-playlist">
+                                <li class="playlist-item active-track" data-src="https://www.w3schools.com/html/mov_bbb.mp4" data-desc="Esports Documentary - Edited in DaVinci Resolve, highlighting a professional gaming tournament narrative with complex audio soundscaping and interview cutaways.">
+                                    <span class="track-num">01.</span> Esports_Doc_Edit.mov
+                                </li>
+                                <li class="playlist-item" data-src="https://www.w3schools.com/html/movie.mp4" data-desc="Tokyo Travel Cinematic Vlog - Heavy color-grading, speed-ramping, sound design transitions (wooshes, ambient city noises), and stabilization edits.">
+                                    <span class="track-num">02.</span> Tokyo_Cinematic_Vlog.mp4
+                                </li>
+                                <li class="playlist-item" data-src="https://www.w3schools.com/html/mov_bbb.mp4" data-desc="After Effects Portal VFX Breakdown - A comprehensive breakdown of advanced visual effects layers, maskings, rotoscoping, and particle effects.">
+                                    <span class="track-num">03.</span> Portal_VFX_Breakdown.avi
+                                </li>
+                            </ul>
+                            <div class="track-desc-box" id="longform-desc">
+                                <strong>Description:</strong> Esports Documentary - Edited in DaVinci Resolve, highlighting a professional tournament narrative with complex audio soundscaping.
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ================= PAGE 4: CONTACT & SKILLS ================= -->
+            <section class="desktop-screen" id="screen-contact">
+                <div class="window properties-window">
+                    <div class="window-titlebar">
+                        <div class="title-text-icon">⚙️ System Properties</div>
+                        <div class="titlebar-actions">
+                            <button class="titlebar-btn min-btn">_</button>
+                            <button class="titlebar-btn max-btn">🗖</button>
+                            <button class="titlebar-btn close-btn" data-home="0">×</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Tabs Navigation -->
+                    <nav class="properties-tabs">
+                        <button class="tab-btn active-tab" data-tab="tab-general">General</button>
+                        <button class="tab-btn" data-tab="tab-skills">Skills</button>
+                        <button class="tab-btn" data-tab="tab-contact">Contact</button>
+                    </nav>
+
+                    <div class="window-body properties-body">
+                        <!-- TAB 1: GENERAL (About Me) -->
+                        <div class="tab-content" id="tab-general">
+                            <div class="properties-intro-layout">
+                                <div class="tavionyx-avatar-badge">👽</div>
+                                <div class="tavionyx-bio-details">
+                                    <p class="bold-text big-text">Tavionyx (tav)</p>
+                                    <p>Editor & Programmer</p>
+                                    <hr>
+                                    <p><strong>Experience:</strong> 1 Year (Pro edits & code integration)</p>
+                                    <p><strong>OS Version:</strong> Tavionyx Portfolio OS v1.0.0</p>
+                                    <p><strong>Philosophy:</strong> I bridge the gap between creative visual storytelling (video editing) and robust engineering (web dev/coding). I believe edits should hit hard, and websites should load fast.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 2: SKILLS (Progress Bars) -->
+                        <div class="tab-content hidden" id="tab-skills">
+                            <h4 class="retro-heading">Skills and Software Competencies</h4>
+                            <div class="skills-container">
+                                <!-- Skill 1 -->
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span>DaVinci Resolve (Editing, Grading)</span>
+                                        <span>90%</span>
+                                    </div>
+                                    <div class="progress-bar-track">
+                                        <div class="progress-bar-fill" style="width: 90%;"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill 2 -->
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span>After Effects (VFX, Motion Graphics)</span>
+                                        <span>85%</span>
+                                    </div>
+                                    <div class="progress-bar-track">
+                                        <div class="progress-bar-fill" style="width: 85%;"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill 3 -->
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span>HTML & CSS Layouts</span>
+                                        <span>80%</span>
+                                    </div>
+                                    <div class="progress-bar-track">
+                                        <div class="progress-bar-fill" style="width: 80%;"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill 4 -->
+                                <div class="skill-item">
+                                    <div class="skill-info">
+                                        <span>JavaScript (Interactivity, Apps)</span>
+                                        <span>75%</span>
+                                    </div>
+                                    <div class="progress-bar-track">
+                                        <div class="progress-bar-fill" style="width: 75%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAB 3: CONTACT FORM -->
+                        <div class="tab-content hidden" id="tab-contact">
+                            <h4 class="retro-heading">Send a Message (Contact_Form.exe)</h4>
+                            <form class="retro-form" id="contact-form" onsubmit="event.preventDefault(); alert('Message transmission initiated successfully! (Simulated)');">
+                                <div class="form-group-row">
+                                    <div class="form-control-wrap">
+                                        <label for="c-name">Name:</label>
+                                        <input type="text" id="c-name" class="retro-input" placeholder="e.g. Guest User" required>
+                                    </div>
+                                    <div class="form-control-wrap">
+                                        <label for="c-email">Email:</label>
+                                        <input type="email" id="c-email" class="retro-input" placeholder="e.g. email@domain.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-control-wrap full-width-field">
+                                    <label for="c-msg">Message:</label>
+                                    <textarea id="c-msg" rows="4" class="retro-input" placeholder="Enter message here..." required></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="retro-btn bold-text">OK / Send</button>
+                                    <button type="reset" class="retro-btn">Clear</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="window-statusbar">
+                        <span id="properties-status">Status: Active</span>
+                        <span>Connection: Online</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ================= GLOBAL WINDOWS: VIDEO DIALOG OVERLAY ================= -->
+        <div id="video-modal" class="modal-overlay hidden">
+            <div class="window modal-window">
+                <div class="window-titlebar">
+                    <span id="modal-title">Project Video</span>
+                    <button class="titlebar-btn close-modal-btn" onclick="closeVideoModal()">×</button>
+                </div>
+                <div class="window-body modal-body">
+                    <video id="modal-player" src="" controls class="modal-video"></video>
+                    <p id="modal-description" class="modal-text"></p>
+                    <div class="modal-actions">
+                        <button class="retro-btn" onclick="closeVideoModal()">Close Window</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= RECYCLE BIN DIALOG OVERLAY ================= -->
+        <div id="bin-modal" class="modal-overlay hidden">
+            <div class="window modal-window mini-dialog">
+                <div class="window-titlebar">
+                    <span>Recycle Bin</span>
+                    <button class="titlebar-btn" onclick="closeBinModal()">×</button>
+                </div>
+                <div class="window-body modal-body text-center">
+                    <p class="big-icon">🗑️</p>
+                    <p><strong>Recycle Bin Empty</strong></p>
+                    <p class="small-text text-muted">All bugs, bad cuts, and failed renders have been permanently deleted!</p>
+                    <div class="modal-actions-centered">
+                        <button class="retro-btn bold-text" onclick="closeBinModal()">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= START MENU OVERLAY ================= -->
+        <div id="start-menu" class="start-menu-panel hidden">
+            <div class="start-sidebar">
+                <div class="start-sidebar-text">Tavionyx OS</div>
+            </div>
+            <div class="start-menu-items">
+                <div class="start-item" data-target="0">
+                    <span class="start-icon">🏠</span> Home Desktop
+                </div>
+                <div class="start-item" data-target="1">
+                    <span class="start-icon">📁</span> Short Form Edits
+                </div>
+                <div class="start-item" data-target="2">
+                    <span class="start-icon">🎬</span> Long Form Edits
+                </div>
+                <div class="start-item" data-target="3">
+                    <span class="start-icon">⚙️</span> Skills & Details
+                </div>
+                <hr class="start-divider">
+                <div class="start-item" id="start-shutdown">
+                    <span class="start-icon">🚪</span> Log Off / Reboot
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= BOTTOM TASKBAR ================= -->
+        <footer class="taskbar">
+            <!-- Start button -->
+            <button class="start-button" id="start-btn">
+                <span class="start-btn-icon">👽</span>
+                <span class="start-btn-text">Start</span>
+            </button>
+
+            <!-- Active Windows shortcuts in taskbar -->
+            <div class="taskbar-programs">
+                <button class="task-btn active-task" id="task-home" data-target="0">
+                    <span>🏠 Desktop</span>
+                </button>
+                <button class="task-btn" id="task-short" data-target="1">
+                    <span>📁 Short_Edits</span>
+                </button>
+                <button class="task-btn" id="task-long" data-target="2">
+                    <span>🎬 Media_Player</span>
+                </button>
+                <button class="task-btn" id="task-sys" data-target="3">
+                    <span>⚙️ Sys_Info</span>
+                </button>
+            </div>
+
+            <!-- System Tray (Clock and utilities) -->
+            <div class="systray">
+                <button class="tray-icon" id="sound-toggle-btn" aria-label="Toggle Sound">🔊</button>
+                <div class="systray-divider"></div>
+                <span class="clock" id="taskbar-clock">00:00 PM</span>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
