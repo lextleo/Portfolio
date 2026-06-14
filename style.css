@@ -296,13 +296,20 @@ body {
     100% { transform: scale(1); opacity: 1; }
 }
 
+.pixel-title-container {
+    display: inline-block;
+    filter: drop-shadow(0 0 5px rgba(255, 0, 255, 0.85)) drop-shadow(0 0 12px rgba(0, 255, 255, 0.65));
+    margin-bottom: 12px;
+}
+
 .pixel-title {
     font-family: var(--font-pixel);
     font-size: 44px;
-    margin-bottom: 12px;
     letter-spacing: -2px;
-    text-shadow: 3px 3px 0px #000000;
-    color: #ffff00;
+    background: linear-gradient(180deg, #ffffff 10%, #ff00ff 50%, #00ffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 .subtitle-wrap {
@@ -1336,19 +1343,60 @@ textarea.retro-input {
     .nav-right { right: 2px; }
     
     .desktop-screen {
-        padding: 5px 5px 45px 5px;
+        padding: 5px;
+    }
+
+    #screen-home {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 115px; /* Leave space for horizontal desktop icons */
+    }
+
+    /* Horizontal grid layout for desktop icons on mobile */
+    .desktop-icons {
+        position: absolute;
+        top: 12px;
+        left: 8px;
+        right: 8px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 4px;
+        width: auto;
+        justify-items: center;
+    }
+
+    .desktop-icon {
+        width: auto;
+        padding: 4px 2px;
+    }
+
+    .icon-visual {
+        font-size: 24px;
+        margin-bottom: 3px;
+    }
+
+    .icon-label {
+        font-size: 10px;
     }
 
     /* Screen 1 adjustment */
     .hero-center {
-        padding: 20px 15px;
-        max-width: 90vw;
+        padding: 16px 12px;
+        max-width: 92vw;
+        width: 92vw;
     }
     .pixel-title {
-        font-size: 28px;
+        font-size: 26px;
     }
     .subtitle-wrap {
-        font-size: 18px;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        font-size: 16px;
+        border-bottom: 1px solid #ffffff;
+        padding-bottom: 6px;
         margin-bottom: 12px;
     }
     .tagline {
@@ -1425,27 +1473,25 @@ textarea.retro-input {
     }
     
     /* Taskbar layout adjustment */
+    .task-lbl {
+        display: none !important;
+    }
+    
     .task-btn {
-        width: 32px; /* icon-only tasks on small phones */
-        min-width: 32px;
-        padding: 0;
-        justify-content: center;
+        width: 38px !important;
+        min-width: 38px !important;
+        max-width: 38px !important;
+        padding: 0 !important;
+        justify-content: center !important;
     }
-    .task-btn span {
-        display: inline-block;
-        font-size: 14px;
-        overflow: visible;
+
+    .task-emoji {
+        font-size: 16px !important;
+        margin: 0 !important;
     }
-    #task-home span { font-size: 16px; }
-    .task-btn span {
-        font-size: 16px;
-    }
+
     .taskbar-programs button {
         overflow: visible;
-    }
-    .task-btn span {
-        display: flex;
-        align-items: center;
     }
 }
 
