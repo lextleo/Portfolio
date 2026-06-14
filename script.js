@@ -44,6 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mediaTimeDisplay = document.getElementById("media-time-display");
     const playlistItems = document.querySelectorAll("#longform-playlist .playlist-item");
     const longformDesc = document.getElementById("longform-desc");
+    const longformVis = document.getElementById("longform-vis");
 
     // Properties Tab elements
     const tabButtons = document.querySelectorAll(".tab-btn");
@@ -262,24 +263,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Desktop icons double-click / tap
+    // Desktop icons click / tap
     desktopIcons.forEach(icon => {
         // Desktop navigation icons
         const target = icon.getAttribute("data-target");
         if (target !== null) {
-            icon.addEventListener("dblclick", () => {
-                navigateToPage(parseInt(target));
-            });
-            // Support single tap for mobile screens
             icon.addEventListener("click", (e) => {
                 // Clear selection on other icons
                 desktopIcons.forEach(i => i.classList.remove("selected"));
                 icon.classList.add("selected");
                 
-                // On mobile/touch, navigate immediately on click
-                if (window.innerWidth <= 768) {
+                // Navigate immediately on single click (desktop & mobile)
+                setTimeout(() => {
                     navigateToPage(parseInt(target));
-                }
+                }, 100); // Tiny delay to show selection feedback
                 playClick();
             });
         }
@@ -487,8 +484,18 @@ document.addEventListener("DOMContentLoaded", () => {
         mediaPlayBtn.innerHTML = "▶ Play";
     });
 
-    // Track time updates
+    // Track time and play state updates
     if (longformVideo) {
+        longformVideo.addEventListener("play", () => {
+            if (longformVis) longformVis.classList.add("playing");
+        });
+        longformVideo.addEventListener("pause", () => {
+            if (longformVis) longformVis.classList.remove("playing");
+        });
+        longformVideo.addEventListener("ended", () => {
+            if (longformVis) longformVis.classList.remove("playing");
+            mediaPlayBtn.innerHTML = "▶ Play";
+        });
         longformVideo.addEventListener("timeupdate", () => {
             const cur = formatTime(longformVideo.currentTime);
             const dur = formatTime(longformVideo.duration || 0);
