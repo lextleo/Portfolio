@@ -119,7 +119,18 @@
                                 <p>Double click a project below to play it. All edits crafted using After Effects and DaVinci Resolve.</p>
                             </div>
                             <div class="shorts-grid">
-                                <!-- Card 1 -->
+                                <!-- Card 1 (Real YouTube Short) -->
+                                <div class="short-card" onclick="openVideoModal('Kevin Hart Talking Head Edit', 'https://youtube.com/shorts/edNFSzP0cwY?si=fKI6RDJkNCCqvogp', 'Talking head video edit of Kevin Hart featuring dynamic motion captions, sound design transitions, pacing cuts, and graphic overlays.')">
+                                    <div class="short-thumbnail">
+                                        <div class="play-overlay">▶</div>
+                                        <span class="thumb-emoji">🗣️</span>
+                                    </div>
+                                    <div class="short-info">
+                                        <span class="short-name">Kevin_Hart_Edit.mp4</span>
+                                        <span class="short-size">18.2 MB</span>
+                                    </div>
+                                </div>
+                                <!-- Card 2 -->
                                 <div class="short-card" onclick="openVideoModal('Valorant Montage - Fast Beats', 'https://www.w3schools.com/html/mov_bbb.mp4', 'A fast-paced gaming edit focusing on syncing beats with in-game sniper shots and seamless zoom transitions.')">
                                     <div class="short-thumbnail">
                                         <div class="play-overlay">▶</div>
@@ -167,8 +178,8 @@
                         </main>
                     </div>
                     <div class="window-statusbar">
-                        <span>4 object(s) selected</span>
-                        <span>Capacity: 64.6 MB</span>
+                        <span>5 object(s) selected</span>
+                        <span>Capacity: 82.8 MB</span>
                     </div>
                 </div>
             </section>
@@ -322,6 +333,7 @@
                 </div>
                 <div class="window-body modal-body">
                     <video id="modal-player" src="" controls class="modal-video"></video>
+                    <iframe id="modal-iframe" src="" class="modal-video hidden" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     <p id="modal-description" class="modal-text"></p>
                     <div class="modal-actions">
                         <button class="retro-btn" onclick="closeVideoModal()">Close Window</button>

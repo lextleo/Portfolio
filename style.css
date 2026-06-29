@@ -1005,10 +1005,12 @@ textarea.retro-input {
 
 .modal-window {
     width: 580px;
+    max-width: 95vw;
 }
 
 .mini-dialog {
     width: 320px;
+    max-width: 95vw;
 }
 
 .text-center {
@@ -1044,6 +1046,12 @@ textarea.retro-input {
     border: 2px solid;
     border-color: var(--border-dark) var(--border-light) var(--border-light) var(--border-dark);
     background-color: #000;
+}
+
+.vertical-modal-body .modal-video {
+    aspect-ratio: 9/16;
+    max-width: 280px;
+    margin: 0 auto;
 }
 
 .modal-text {

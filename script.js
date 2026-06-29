@@ -377,22 +377,48 @@ document.addEventListener("DOMContentLoaded", () => {
     // ==========================================
     window.openVideoModal = function(title, src, description) {
         modalTitle.textContent = `▶ Media Player - ${title}`;
-        modalPlayer.src = src;
         modalDescription.textContent = description;
-        videoModal.classList.remove("hidden");
+        const modalIframe = document.getElementById("modal-iframe");
         
+        if (src.includes("youtube.com") || src.includes("youtu.be")) {
+            modalPlayer.classList.add("hidden");
+            modalPlayer.src = "";
+            
+            let embedUrl = src;
+            if (src.includes("youtube.com/shorts/")) {
+                let videoId = src.split("shorts/")[1].split("?")[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                modalPlayer.parentElement.classList.add("vertical-modal-body");
+            } else if (src.includes("youtube.com/watch")) {
+                let videoId = src.split("v=")[1].split("&")[0];
+                embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+                modalPlayer.parentElement.classList.remove("vertical-modal-body");
+            }
+            
+            modalIframe.src = embedUrl;
+            modalIframe.classList.remove("hidden");
+        } else {
+            modalIframe.classList.add("hidden");
+            modalIframe.src = "";
+            modalPlayer.parentElement.classList.remove("vertical-modal-body");
+            modalPlayer.src = src;
+            modalPlayer.classList.remove("hidden");
+            
+            modalPlayer.play().catch(err => {
+                console.log("Autoplay blocked by browser, waiting for user click.");
+            });
+        }
+        
+        videoModal.classList.remove("hidden");
         initAudio();
         playClick();
-        
-        // Autoplay the video in modal
-        modalPlayer.play().catch(err => {
-            console.log("Autoplay blocked by browser, waiting for user click.");
-        });
     };
 
     window.closeVideoModal = function() {
+        const modalIframe = document.getElementById("modal-iframe");
         modalPlayer.pause();
         modalPlayer.src = "";
+        modalIframe.src = "";
         videoModal.classList.add("hidden");
         playCloseSound();
     };
